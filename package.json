@@ -1,0 +1,33 @@
+{
+  "name": "jordan",
+  "version": "1.0.0",
+  "description": "Personal Site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dubKelly/jordanNeeb.git"
+  },
+  "author": "Jordan Neeb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dubKelly/jordanNeeb/issues"
+  },
+  "homepage": "https://github.com/dubKelly/jordanNeeb#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "m": "^1.5.1",
+    "mongoose": "^5.2.17",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.3"
+  }
+}
