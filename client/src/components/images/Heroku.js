@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Javascript = props => {
+const Heroku = props => {
 	return (
 		<svg
 			className={svg}
@@ -45,4 +45,4 @@ const svg = css({
 	}
 });
 
-export default Javascript;
+export default Heroku;

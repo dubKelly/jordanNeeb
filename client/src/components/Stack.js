@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { css } from 'emotion';
 import shortid from 'shortid';
 
@@ -53,6 +54,7 @@ const shuffle = logos => {
 		// Pick remaining element
 		randomIndex = Math.floor(Math.random() * currentIndex);
 		currentIndex -= 1;
+
 		// Swap with currentIndex
 		temporaryValue = logos[currentIndex];
 		logos[currentIndex] = logos[randomIndex];
@@ -73,12 +75,16 @@ const Stack = props => {
 
 	return (
 		<div className={component}>
-			{logos.map((obj, i) => (
-				<div key={shortid.generate()} className={container}>
-					<div ket={shortid.generate()} className={cover} />
-					{logos[i]}
-				</div>
-			))}
+			{logos.map((obj, i) => {
+				const path = logos[i].type.name.toLowerCase();
+
+				return (
+					<div key={shortid.generate()} className={container}>
+						<Link to={`/resume/${path}`} className={cover} />
+						{logos[i]}
+					</div>
+				);
+			})}
 		</div>
 	);
 };

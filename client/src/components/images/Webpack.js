@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Javascript = props => {
+const Webpack = props => {
 	return (
 		<svg className={svg} viewBox="0 0 1200 1200" width="2500" height="2500">
 			<path fill="#fff" d="M600 0l530.3 300v600L600 1200 69.7 900V300z" />
@@ -40,4 +40,4 @@ const svg = css({
 	}
 });
 
-export default Javascript;
+export default Webpack;

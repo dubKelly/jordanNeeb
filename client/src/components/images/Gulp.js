@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Javascript = props => {
+const Gulp = props => {
 	return (
 		<svg
 			className={svg}
@@ -49,4 +49,4 @@ const svg = css({
 	}
 });
 
-export default Javascript;
+export default Gulp;

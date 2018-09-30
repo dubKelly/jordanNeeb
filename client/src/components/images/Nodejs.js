@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Jest = props => {
+const Nodejs = props => {
 	return (
 		<svg
 			className={svg}
@@ -41,4 +41,4 @@ const svg = css({
 	}
 });
 
-export default Jest;
+export default Nodejs;

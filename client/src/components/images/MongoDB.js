@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Javascript = props => {
+const MongoDB = props => {
 	return (
 		<svg
 			className={svg}
@@ -68,4 +68,4 @@ const svg = css({
 	}
 });
 
-export default Javascript;
+export default MongoDB;

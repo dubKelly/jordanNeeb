@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Javascript = props => {
+const Sass = props => {
 	return (
 		<svg className={svg} width="2500" height="1875" viewBox="0 0 512 384">
 			<path
@@ -35,4 +35,4 @@ const svg = css({
 	}
 });
 
-export default Javascript;
+export default Sass;

@@ -7,7 +7,7 @@ import { css } from 'emotion';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Javascript = props => {
+const Git = props => {
 	return (
 		<svg
 			className={svg}
@@ -41,4 +41,4 @@ const svg = css({
 	}
 });
 
-export default Javascript;
+export default Git;
