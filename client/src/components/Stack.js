@@ -1,11 +1,21 @@
 import React from 'react';
 import { css } from 'emotion';
 
+import Atom from './images/Atom';
+import Emmet from './images/Emmet';
+import Git from './images/Git';
+import Gulp from './images/Gulp';
+import Heroku from './images/Heroku';
+import Html from './images/Html';
 import Javascript from './images/Javascript';
+import Jest from './images/Jest';
+import MongoDB from './images/MongoDB';
 import Nodejs from './images/Nodejs';
 import Passport from './images/Passport';
 import Reactjs from './images/Reactjs';
-import Jest from './images/Jest';
+import Redux from './images/Redux';
+import Sass from './images/Sass';
+import Webpack from './images/Webpack';
 
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
@@ -38,12 +48,43 @@ const Stack = props => {
 			</div>
 			<div className={container}>
 				<div className={cover} />
+				<Atom />
 			</div>
 			<div className={container}>
 				<div className={cover} />
+				<Emmet />
 			</div>
 			<div className={container}>
 				<div className={cover} />
+				<Git />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<Gulp />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<Heroku />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<Html />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<MongoDB />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<Redux />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<Sass />
+			</div>
+			<div className={container}>
+				<div className={cover} />
+				<Webpack />
 			</div>
 		</div>
 	);
