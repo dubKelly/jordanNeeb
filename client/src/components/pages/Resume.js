@@ -1,11 +1,8 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { css } from 'emotion';
 
-import { _light } from '../../lib/vars';
-
 import Stack from '../Stack';
-import Printable from '../Printable';
 
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
