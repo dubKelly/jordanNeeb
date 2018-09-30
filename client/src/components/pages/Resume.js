@@ -1,10 +1,7 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { css } from 'emotion';
 
-import { _dark } from '../../lib/vars';
-
-import Logo from '../Logo';
-import Nav from '../Nav';
 import Stack from '../Stack';
 
 ///////   ///////  ///   //  //////    ///////  ///////
@@ -16,9 +13,7 @@ import Stack from '../Stack';
 const Resume = props => {
 	return (
 		<div className={component}>
-			<Logo />
-			<Nav />
-			<Stack />
+			<Route exact path="/resume" component={Stack} />
 		</div>
 	);
 };
@@ -32,9 +27,11 @@ const Resume = props => {
 ////////////////////////////////////////////////////////
 
 const component = css({
+	position: 'absolute',
 	height: '100vh',
 	width: '100%',
-	backgroundColor: _dark
+	top: '0',
+	left: '0'
 });
 
 export default Resume;

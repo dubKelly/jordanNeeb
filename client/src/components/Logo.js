@@ -150,6 +150,7 @@ const component = css({
 	top: '0',
 	left: '30px',
 	cursor: 'pointer',
+	zIndex: '4',
 	[mq[0]]: {
 		top: '5px',
 		left: '35px'

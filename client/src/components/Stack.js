@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
+import shortid from 'shortid';
 
 import Atom from './images/Atom';
 import Emmet from './images/Emmet';
@@ -17,6 +18,50 @@ import Redux from './images/Redux';
 import Sass from './images/Sass';
 import Webpack from './images/Webpack';
 
+///////////////////////////////////////////////////////////
+////     ///  ///  ///     //        ///     ///   //   ///
+///  ///  //  ///  //  /////////  /////  ///  //        ///
+///  ///////  ///  ///    //////  /////  ///  //  /  /  ///
+///  ///  //  ///  //////  /////  /////  ///  //  ////  ///
+////     ////     ///     //////  //////     ///  ////  ///
+///////////////////////////////////////////////////////////
+
+let logos = [
+	<Atom />,
+	<Emmet />,
+	<Git />,
+	<Gulp />,
+	<Heroku />,
+	<Html />,
+	<Javascript />,
+	<Jest />,
+	<MongoDB />,
+	<Nodejs />,
+	<Passport />,
+	<Reactjs />,
+	<Redux />,
+	<Sass />,
+	<Webpack />
+];
+
+const shuffle = logos => {
+	let currentIndex = logos.length,
+		temporaryValue,
+		randomIndex;
+
+	while (currentIndex !== 0) {
+		// Pick remaining element
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		// Swap with currentIndex
+		temporaryValue = logos[currentIndex];
+		logos[currentIndex] = logos[randomIndex];
+		logos[randomIndex] = temporaryValue;
+	}
+
+	return logos;
+};
+
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
 ///////   /////    // // //  //    //  /////    ///////
@@ -24,68 +69,16 @@ import Webpack from './images/Webpack';
 //   //   ///////  //   ///  //////    ///////  //   //
 
 const Stack = props => {
+	logos = shuffle(logos);
+
 	return (
 		<div className={component}>
-			<div className={container}>
-				<div className={cover} />
-				<Reactjs />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Javascript />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Passport />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Nodejs />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Jest />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Atom />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Emmet />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Git />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Gulp />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Heroku />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Html />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<MongoDB />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Redux />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Sass />
-			</div>
-			<div className={container}>
-				<div className={cover} />
-				<Webpack />
-			</div>
+			{logos.map((obj, i) => (
+				<div key={shortid.generate()} className={container}>
+					<div ket={shortid.generate()} className={cover} />
+					{logos[i]}
+				</div>
+			))}
 		</div>
 	);
 };
@@ -107,7 +100,8 @@ const component = css({
 	padding: '0 30px',
 	top: '50%',
 	left: '50%',
-	transform: 'translate(-50%, -50%)'
+	transform: 'translate(-50%, -50%)',
+	maxWidth: '480px'
 });
 
 const container = css({

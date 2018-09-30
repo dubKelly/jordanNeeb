@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { css } from 'emotion';
+import styled from 'react-emotion';
 
 import { _light } from '../lib/vars';
+
+import Logo from './Logo';
 
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
@@ -13,6 +16,7 @@ import { _light } from '../lib/vars';
 const Nav = props => {
 	return (
 		<div className={component}>
+			<Logo />
 			<ul className={ul}>
 				<li className={li}>
 					<Link className={link} to="/resume">
@@ -44,7 +48,9 @@ const mq = breakpoints.map(bp => {
 });
 
 const component = css({
-	width: '100%'
+	position: 'relative',
+	width: '100%',
+	zIndex: '4'
 });
 
 const ul = css({

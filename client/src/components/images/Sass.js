@@ -27,8 +27,12 @@ const Javascript = props => {
 ////////////////////////////////////////////////////////
 
 const svg = css({
-	height: '60px',
-	width: '60px'
+	height: '45px',
+	width: '45px',
+	'@media only screen and (min-width: 350px)': {
+		height: '60px',
+		width: '60px'
+	}
 });
 
 export default Javascript;

@@ -3,7 +3,6 @@ import { css } from 'emotion';
 
 import { _dark } from '../../lib/vars';
 
-import Logo from '../Logo';
 import Nav from '../Nav';
 
 ///////   ///////  ///   //  //////    ///////  ///////
@@ -15,7 +14,6 @@ import Nav from '../Nav';
 const Home = props => {
 	return (
 		<div className={component}>
-			<Logo />
 			<Nav />
 		</div>
 	);

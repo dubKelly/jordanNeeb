@@ -1,11 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import { _dark } from '../../lib/vars';
-
-import Logo from '../Logo';
-import Nav from '../Nav';
-
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
 ///////   /////    // // //  //    //  /////    ///////
@@ -13,12 +8,7 @@ import Nav from '../Nav';
 //   //   ///////  //   ///  //////    ///////  //   //
 
 const Contact = props => {
-	return (
-		<div className={component}>
-			<Logo />
-			<Nav />
-		</div>
-	);
+	return <div className={component} />;
 };
 
 ////////////////////////////////////////////////////////
@@ -30,9 +20,11 @@ const Contact = props => {
 ////////////////////////////////////////////////////////
 
 const component = css({
+	position: 'absolute',
 	height: '100vh',
 	width: '100%',
-	backgroundColor: _dark
+	top: '0',
+	left: '0'
 });
 
 export default Contact;
