@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { css } from 'emotion';
-import styled from 'react-emotion';
 
 import { _light } from '../lib/vars';
 

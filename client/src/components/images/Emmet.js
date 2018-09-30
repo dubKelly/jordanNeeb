@@ -40,7 +40,7 @@ const Emmet = props => {
 const svg = css({
 	height: '45px',
 	width: '45px',
-	'@media only screen and (min-width: 350px)': {
+	'@media only screen and (min-width: 570px)': {
 		height: '60px',
 		width: '60px'
 	}
