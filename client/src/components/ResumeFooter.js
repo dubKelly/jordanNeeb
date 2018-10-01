@@ -4,6 +4,8 @@ import { css } from 'emotion';
 
 import { _light } from '../lib/vars';
 
+import PrintableLink from './PrintableLink';
+
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
 ///////   /////    // // //  //    //  /////    ///////
@@ -13,9 +15,6 @@ import { _light } from '../lib/vars';
 const ResumeFooter = props => {
 	return (
 		<div className={component}>
-			<Link to="/resume/printable" className={printableLink}>
-				Get On With It
-			</Link>
 			<div
 				className={css`
 					${container} ${tileViewContainer};
@@ -90,6 +89,7 @@ const ResumeFooter = props => {
 					`}
 				/>
 			</div>
+			<PrintableLink />
 		</div>
 	);
 };
@@ -103,21 +103,6 @@ const ResumeFooter = props => {
 ////////////////////////////////////////////////////////
 
 const component = css({});
-
-const printableLink = css({
-	position: 'absolute',
-	bottom: '25px',
-	right: '30px',
-	textDecoration: 'none',
-	textTransform: 'uppercase',
-	fontSize: '10px',
-	letterSpacing: '3px',
-	color: _light,
-	transition: 'color 0.3s ease-in-out',
-	':hover': {
-		color: 'white'
-	}
-});
 
 const container = css({
 	position: 'absolute',
