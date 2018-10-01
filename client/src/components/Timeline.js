@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { css } from 'emotion';
 import shortid from 'shortid';
+
+import ResumeFooter from './ResumeFooter';
 
 import {
 	_grey,
@@ -23,41 +25,124 @@ import {
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Timeline = props => {
-	const stack = [
-		'_HTML',
-		'_CSS',
-		'_JavaScript',
-		'_PHP',
-		'_Python',
-		'_Sass',
-		'_React',
-		'_Redux',
-		'_Radium',
-		'_Emotion',
-		'_Nodejs',
-		'_MongoDB'
-	];
+class Timeline extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			startDate: new Date('April 01, 2016'),
+			stack: [
+				{
+					name: 'HTML',
+					className: '_HTML',
+					startDate: new Date('April 01, 2016'),
+					endDate: Date.now()
+				},
+				{
+					name: 'CSS',
+					className: '_CSS',
+					startDate: new Date('May 01, 2016'),
+					endDate: Date.now()
+				},
+				{
+					name: 'Javascript',
+					className: '_Javascript',
+					startDate: new Date('September 01, 2016'),
+					endDate: Date.now()
+				},
+				{
+					name: 'PHP',
+					className: '_PHP',
+					startDate: new Date('October 30, 2016'),
+					endDate: new Date('August 25, 2017')
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				},
+				{
+					name: 'HTML',
+					className: '_HTML',
+					time: '3 Years'
+				}
+			]
+		};
 
-	return (
-		<div className={component}>
-			<div className={container}>
-				{stack.map((obj, i) => {
-					const evilClass = eval(stack[i]);
+		this.showDate = this.showDate.bind(this);
+	}
 
-					return (
-						<span
-							key={shortid.generate()}
-							className={css`
-								${line} ${evilClass};
-							`}
-						/>
-					);
-				})}
+	showDate() {
+		console.log(this.state.stack[0].startDate);
+	}
+
+	render() {
+		const stack = [
+			'_HTML',
+			'_CSS',
+			'_JavaScript',
+			'_PHP',
+			'_Python',
+			'_Sass',
+			'_React',
+			'_Redux',
+			'_Radium',
+			'_Emotion',
+			'_Nodejs',
+			'_MongoDB'
+		];
+
+		return (
+			<div className={component}>
+				<div className={container}>
+					{stack.map((obj, i) => {
+						const evilClass = eval(stack[i]);
+
+						return (
+							<span
+								key={shortid.generate()}
+								className={css`
+									${line} ${evilClass};
+								`}
+								onClick={this.showDate}
+							/>
+						);
+					})}
+				</div>
+				<ResumeFooter />
 			</div>
-		</div>
-	);
-};
+		);
+	}
+}
 
 ////////////////////////////////////////////////////////
 ////     //        //  ///  //  ///////       //     ///
@@ -171,5 +256,17 @@ const _MongoDB = css({
 	backgroundColor: _mongoDB,
 	transform: 'translateY(48px)'
 });
+
+///////////////////////////////////////////////////////////
+////     ///  ///  ///     //        ///     ///   //   ///
+///  ///  //  ///  //  /////////  /////  ///  //        ///
+///  ///////  ///  ///    //////  /////  ///  //  /  /  ///
+///  ///  //  ///  //////  /////  /////  ///  //  ////  ///
+////     ////     ///     //////  //////     ///  ////  ///
+///////////////////////////////////////////////////////////
+
+const handleClick = e => {
+	console.log(e.target.className);
+};
 
 export default Timeline;
