@@ -1,8 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import Header from '../Header';
-import ContactForm from '../ContactForm';
+import { _grey } from '../lib/vars';
 
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
@@ -10,15 +9,8 @@ import ContactForm from '../ContactForm';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Contact = props => {
-	return (
-		<div className={component}>
-			<div className={container}>
-				<Header text="Hit Me Up" />
-				<ContactForm />
-			</div>
-		</div>
-	);
+const Header = props => {
+	return <h2 className={component}>{props.text}</h2>;
 };
 
 ////////////////////////////////////////////////////////
@@ -30,20 +22,16 @@ const Contact = props => {
 ////////////////////////////////////////////////////////
 
 const component = css({
-	position: 'absolute',
-	height: '100vh',
-	width: '100%',
-	top: '0',
-	left: '0'
+	fontSize: '18px',
+	textTransform: 'uppercase',
+	textAlign: 'center',
+	letterSpacing: '5px',
+	fontWeight: '200',
+	color: _grey,
+	margin: '30px 0',
+	'@media only screen and (min-height: 660px)': {
+		margin: '60px 0'
+	}
 });
 
-const container = css({
-	position: 'absolute',
-	top: '50%',
-	left: '50%',
-	width: '80%',
-	maxWidth: '480px',
-	transform: 'translate(-50%, -50%)'
-});
-
-export default Contact;
+export default Header;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { css } from 'emotion';
 
 import { _light, _shadow, _grey } from '../lib/vars';
@@ -20,9 +21,28 @@ class ContactForm extends Component {
 	////     ////     ///     //////  //////     ///  ////  ///
 	///////////////////////////////////////////////////////////
 
-	handleChange() {}
+	handleChange(e) {
+		const name = e.target.getAttribute('name');
+		const text = e.target.value;
 
-	handleSubmit() {}
+		this.setState({ [name]: text });
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+
+		const { name, email, subject, text } = this.state;
+		const message = { name, email, subject, text };
+
+		axios
+			.post('http://localhost:5000/email', message)
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
 
 	///////   ///////  ///   //  //////    ///////  ///////
 	//    //  //       ////  //  //   //   //       //    //
@@ -33,13 +53,33 @@ class ContactForm extends Component {
 	render() {
 		return (
 			<form className={component} onSubmit={this.handleSubmit}>
-				<input type="text" className={`${input} ${block}`} name="subject" />
-				<textarea name="text" className={`${input} ${block}`} rows="8" />
-				<input type="text" name="name" className={`${input} ${inline}`} />
 				<input
 					type="text"
+					placeholder="Subject"
+					className={`${input} ${block}`}
+					name="subject"
+					onChange={this.handleChange}
+				/>
+				<textarea
+					name="text"
+					placeholder="Message"
+					className={`${input} ${block}`}
+					rows="8"
+					onChange={this.handleChange}
+				/>
+				<input
+					type="text"
+					placeholder="Name"
+					name="name"
+					className={`${input} ${inline}`}
+					onChange={this.handleChange}
+				/>
+				<input
+					type="text"
+					placeholder="Email"
 					name="email"
 					className={`${input} ${inline} ${inlineRight}`}
+					onChange={this.handleChange}
 				/>
 				<input type="submit" className={`${input} ${submit}`} />
 			</form>
@@ -71,6 +111,7 @@ const input = css({
 	boxSizing: 'border-box',
 	resize: 'none',
 	padding: '10px 10px',
+	color: _grey,
 	backgroundColor: 'rgba(0, 0, 0, 0.2)',
 	fontSize: '14px',
 	':focus': {
@@ -111,6 +152,11 @@ const submit = css({
 	cursor: 'pointer',
 	transition: 'all 0.3s ease-in-out',
 	':hover': {
+		color: 'white',
+		backgroundColor: _light
+	},
+	':focus': {
+		outline: 'none',
 		color: 'white',
 		backgroundColor: _light
 	}
