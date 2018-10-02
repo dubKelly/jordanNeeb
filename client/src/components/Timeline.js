@@ -19,121 +19,241 @@ import {
 	_mongoDB
 } from '../lib/vars';
 
-///////   ///////  ///   //  //////    ///////  ///////
-//    //  //       ////  //  //   //   //       //    //
-///////   /////    // // //  //    //  /////    ///////
-//  //    //       //  ////  //   //   //       //  //
-//   //   ///////  //   ///  //////    ///////  //   //
-
 class Timeline extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			startDate: new Date('April 01, 2016'),
+			name: undefined,
+			color: undefined,
+			experience: undefined,
+			startDate: Date.parse('April 01, 2016'),
 			stack: [
 				{
 					name: 'HTML',
 					className: '_HTML',
-					startDate: new Date('April 01, 2016'),
-					endDate: Date.now()
+					startDate: Date.parse('April 01, 2016'),
+					endDate: Date.now(),
+					backgroundColor: _html,
+					offset: '0px'
 				},
 				{
 					name: 'CSS',
 					className: '_CSS',
-					startDate: new Date('May 01, 2016'),
-					endDate: Date.now()
+					startDate: Date.parse('May 01, 2016'),
+					endDate: Date.now(),
+					backgroundColor: _css,
+					offset: '16px'
 				},
 				{
-					name: 'Javascript',
-					className: '_Javascript',
-					startDate: new Date('September 01, 2016'),
-					endDate: Date.now()
+					name: 'JavaScript',
+					className: '_JavaScript',
+					startDate: Date.parse('September 01, 2016'),
+					endDate: Date.now(),
+					backgroundColor: _javaScript,
+					offset: '-16px'
 				},
 				{
 					name: 'PHP',
 					className: '_PHP',
-					startDate: new Date('October 30, 2016'),
-					endDate: new Date('August 25, 2017')
+					startDate: Date.parse('October 30, 2016'),
+					endDate: Date.parse('August 25, 2017'),
+					backgroundColor: _php,
+					offset: '-32px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'Python',
+					className: '_Python',
+					startDate: Date.parse('March 04, 2018'),
+					endDate: Date.parse('April 07, 2018'),
+					backgroundColor: _python,
+					offset: '64px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'Sass',
+					className: '_Sass',
+					startDate: Date.parse('June 11, 2017'),
+					endDate: Date.parse('November 06, 2017'),
+					backgroundColor: _sass,
+					offset: '32px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'React',
+					className: '_React',
+					startDate: Date.parse('August 13, 2017'),
+					endDate: Date.now(),
+					backgroundColor: _react,
+					offset: '-48px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'Redux',
+					className: '_Redux',
+					startDate: Date.parse('December 31, 2017'),
+					endDate: Date.now(),
+					backgroundColor: _redux,
+					offset: '-32px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'Radium',
+					className: '_Radium',
+					startDate: Date.parse('December 31, 2017'),
+					endDate: Date.parse('July 15, 2018'),
+					backgroundColor: _grey,
+					offset: '32px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'Emotion',
+					className: '_Emotion',
+					startDate: Date.parse('July 15, 2018'),
+					endDate: Date.now(),
+					backgroundColor: _emotion,
+					offset: '32px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'Node',
+					className: '_Nodejs',
+					startDate: Date.parse('August 13, 2017'),
+					endDate: Date.now(),
+					backgroundColor: _nodejs,
+					offset: '-64px'
 				},
 				{
-					name: 'HTML',
-					className: '_HTML',
-					time: '3 Years'
+					name: 'MongoDB',
+					className: '_MongoDB',
+					startDate: Date.parse('August 13, 2017'),
+					endDate: Date.now(),
+					backgroundColor: _mongoDB,
+					offset: '48px'
 				}
 			]
 		};
 
-		this.showDate = this.showDate.bind(this);
+		this.getStats = this.getStats.bind(this);
 	}
 
-	showDate() {
-		console.log(this.state.stack[0].startDate);
+	getStats(e) {
+		const name = e.target.getAttribute('name');
+		const color = e.target.getAttribute('data-color');
+		const timespan = e.target.getAttribute('data-timespan');
+		let years = parseInt(timespan / 31536000000, 10);
+		let months = parseInt((timespan % 31536000000) / 2628000000, 10);
+		let conjunction = '';
+
+		if (years > 0 && name === 'JavaScript') {
+			conjunction = '&&';
+		} else if (years > 0) {
+			conjunction = '&';
+		}
+
+		if (years > 0 && years <= 1) {
+			years = '1 Year';
+		} else if (years > 0) {
+			years = `${years} Years`;
+		} else {
+			years = '';
+		}
+
+		if (months > 0 && months <= 1) {
+			months = '1 Month';
+		} else if (months > 0) {
+			months = `${months} Months`;
+		} else {
+			months = '';
+		}
+
+		const experience = `${years} ${conjunction} ${months}`;
+
+		this.setState({ name, color, experience });
 	}
 
 	render() {
-		const stack = [
-			'_HTML',
-			'_CSS',
-			'_JavaScript',
-			'_PHP',
-			'_Python',
-			'_Sass',
-			'_React',
-			'_Redux',
-			'_Radium',
-			'_Emotion',
-			'_Nodejs',
-			'_MongoDB'
-		];
+		////////////////////////////////////////////////////////
+		////     //        //  ///  //  ///////       //     ///
+		///  /////////  //////  /  ///  ///////  //////  ///////
+		////    //////  ///////  /////  ///////     ////    ////
+		///////  /////  ///////  /////  ///////  //////////  ///
+		///     //////  ///////  /////       //       //     ///
+		////////////////////////////////////////////////////////
+
+		const component = css({
+			position: 'absolute',
+			top: '0',
+			left: '0',
+			height: '100%',
+			width: '100%'
+		});
+
+		const container = css({
+			position: 'absolute',
+			top: '50%',
+			left: '50%',
+			transform: 'translate(-50%, -50%)',
+			width: '80%'
+		});
+
+		const line = css({
+			position: 'absolute',
+			content: '""',
+			height: '8px',
+			borderRadius: '4px'
+		});
+
+		const stats = css({
+			position: 'absolute',
+			top: '120px',
+			left: '12%'
+		});
+
+		const techName = css({
+			fontSize: '16px',
+			letterSpacing: '1px',
+			color: this.state.color
+		});
+
+		const exp = css({
+			fontSize: '12px',
+			letterSpacing: '1px',
+			color: _grey
+		});
+
+		///////   ///////  ///   //  //////    ///////  ///////
+		//    //  //       ////  //  //   //   //       //    //
+		///////   /////    // // //  //    //  /////    ///////
+		//  //    //       //  ////  //   //   //       //  //
+		//   //   ///////  //   ///  //////    ///////  //   //
+
+		const timeline = Date.now() - this.state.startDate;
+		const { name, startDate, experience, stack } = this.state;
 
 		return (
 			<div className={component}>
+				<div className={stats}>
+					<h3 className={techName}>{name}</h3>
+					<p className={exp}>{experience}</p>
+				</div>
 				<div className={container}>
 					{stack.map((obj, i) => {
-						const evilClass = eval(stack[i]);
+						const timeSpan = stack[i].endDate - stack[i].startDate;
+						const lineWidth = 100 / (timeline / timeSpan);
+						const lineLeft =
+							100 / (timeline / (stack[i].startDate - startDate));
+
+						const lineStyle = {
+							width: `${lineWidth}%`,
+							left: `${lineLeft}%`,
+							backgroundColor: stack[i].backgroundColor,
+							transform: `translateY(${stack[i].offset})`,
+							cursor: 'pointer'
+						};
 
 						return (
 							<span
 								key={shortid.generate()}
-								className={css`
-									${line} ${evilClass};
-								`}
-								onClick={this.showDate}
+								className={line}
+								onClick={this.getStats}
+								style={lineStyle}
+								name={this.state.stack[i].name}
+								data-timespan={timeSpan}
+								data-color={this.state.stack[i].backgroundColor}
 							/>
 						);
 					})}
@@ -143,130 +263,5 @@ class Timeline extends Component {
 		);
 	}
 }
-
-////////////////////////////////////////////////////////
-////     //        //  ///  //  ///////       //     ///
-///  /////////  //////  /  ///  ///////  //////  ///////
-////    //////  ///////  /////  ///////     ////    ////
-///////  /////  ///////  /////  ///////  //////////  ///
-///     //////  ///////  /////       //       //     ///
-////////////////////////////////////////////////////////
-
-const component = css({
-	position: 'absolute',
-	top: '0',
-	left: '0',
-	height: '100%',
-	width: '100%'
-});
-
-const container = css({
-	position: 'absolute',
-	top: '50%',
-	left: '50%',
-	transform: 'translate(-50%, -50%)',
-	width: '80%'
-});
-
-const line = css({
-	position: 'absolute',
-	content: '""',
-	height: '8px',
-	borderRadius: '4px'
-});
-
-const _HTML = css({
-	width: '100%',
-	backgroundColor: _html
-});
-
-const _CSS = css({
-	width: '97%',
-	right: '0',
-	backgroundColor: _css,
-	transform: 'translateY(16px)'
-});
-
-const _JavaScript = css({
-	width: '90%',
-	right: '0',
-	backgroundColor: _javaScript,
-	transform: 'translateY(-16px)'
-});
-
-const _PHP = css({
-	width: '19%',
-	right: '43%',
-	backgroundColor: _php,
-	transform: 'translateY(-32px)'
-});
-
-const _Python = css({
-	width: '6%',
-	left: '84%',
-	backgroundColor: _python,
-	transform: 'translateY(64px)'
-});
-
-const _Sass = css({
-	width: '16%',
-	left: '56%',
-	backgroundColor: _sass,
-	transform: 'translateY(32px)'
-});
-
-const _React = css({
-	width: '36%',
-	right: '0',
-	backgroundColor: _react,
-	transform: 'translateY(-32px)'
-});
-
-const _Redux = css({
-	width: '28%',
-	right: '0',
-	backgroundColor: _redux,
-	transform: 'translateY(-64px)'
-});
-
-const _Radium = css({
-	width: '18%',
-	left: '73%',
-	backgroundColor: _grey,
-	transform: 'translateY(32px)'
-});
-
-const _Emotion = css({
-	width: '8%',
-	right: '0',
-	backgroundColor: _emotion,
-	transform: 'translateY(32px)'
-});
-
-const _Nodejs = css({
-	width: '36%',
-	right: '0',
-	backgroundColor: _nodejs,
-	transform: 'translateY(-48px)'
-});
-
-const _MongoDB = css({
-	width: '36%',
-	right: '0',
-	backgroundColor: _mongoDB,
-	transform: 'translateY(48px)'
-});
-
-///////////////////////////////////////////////////////////
-////     ///  ///  ///     //        ///     ///   //   ///
-///  ///  //  ///  //  /////////  /////  ///  //        ///
-///  ///////  ///  ///    //////  /////  ///  //  /  /  ///
-///  ///  //  ///  //////  /////  /////  ///  //  ////  ///
-////     ////     ///     //////  //////     ///  ////  ///
-///////////////////////////////////////////////////////////
-
-const handleClick = e => {
-	console.log(e.target.className);
-};
 
 export default Timeline;
