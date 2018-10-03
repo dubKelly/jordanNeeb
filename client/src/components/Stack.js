@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { css } from 'emotion';
 import shortid from 'shortid';
 
@@ -79,11 +79,10 @@ const Stack = props => {
 		<div className={component}>
 			<div className={iconContainer}>
 				{logos.map((obj, i) => {
-					const path = logos[i].type.name.toLowerCase();
+					// const path = logos[i].type.name.toLowerCase();
 
 					return (
 						<div key={shortid.generate()} className={svgContainer}>
-							<Link to={`/resume/${path}`} className={cover} />
 							{logos[i]}
 						</div>
 					);
@@ -93,6 +92,7 @@ const Stack = props => {
 		</div>
 	);
 };
+// <Link to={`/resume/${path}`} className={cover} />
 
 ////////////////////////////////////////////////////////
 ////     //        //  ///  //  ///////       //     ///
@@ -128,14 +128,14 @@ const svgContainer = css({
 	padding: '5px'
 });
 
-const cover = css({
-	position: 'absolute',
-	height: '100%',
-	width: '100%',
-	top: '0',
-	left: '0',
-	cursor: 'pointer',
-	zIndex: '2'
-});
+// const cover = css({
+// 	position: 'absolute',
+// 	height: '100%',
+// 	width: '100%',
+// 	top: '0',
+// 	left: '0',
+// 	cursor: 'pointer',
+// 	zIndex: '2'
+// });
 
 export default Stack;

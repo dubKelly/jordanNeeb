@@ -81,7 +81,7 @@ class ContactForm extends Component {
 					className={`${input} ${inline} ${inlineRight}`}
 					onChange={this.handleChange}
 				/>
-				<input type="submit" className={`${input} ${submit}`} />
+				<input type="submit" value="Send" className={`${input} ${submit}`} />
 			</form>
 		);
 	}

@@ -4,7 +4,7 @@ import { css } from 'emotion';
 
 import { _light } from '../lib/vars';
 
-import PrintableLink from './PrintableLink';
+import DownloadLink from './DownloadLink';
 
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
@@ -89,7 +89,7 @@ const ResumeFooter = props => {
 					`}
 				/>
 			</div>
-			<PrintableLink />
+			<DownloadLink />
 		</div>
 	);
 };

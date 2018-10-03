@@ -26,11 +26,11 @@ const component = css({
 	textTransform: 'uppercase',
 	textAlign: 'center',
 	letterSpacing: '5px',
-	fontWeight: '200',
+	fontWeight: '300',
 	color: _grey,
-	margin: '30px 0',
+	margin: '0 0 30px 0',
 	'@media only screen and (min-height: 660px)': {
-		margin: '60px 0'
+		margin: '0 0 60px 0'
 	}
 });
 

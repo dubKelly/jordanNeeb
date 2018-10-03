@@ -10,9 +10,9 @@ import { _light } from '../lib/vars';
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const PrintableLink = props => {
+const Download = props => {
 	return (
-		<Link to="/resume/printable" className={component}>
+		<Link to="/resume/download" className={component}>
 			Get On With It
 		</Link>
 	);
@@ -42,4 +42,4 @@ const component = css({
 	}
 });
 
-export default PrintableLink;
+export default Download;
