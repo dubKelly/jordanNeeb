@@ -1,16 +1,18 @@
 import React from 'react';
 import { css } from 'emotion';
 
+import DownloadIcon from './DownloadIcon';
+
 ///////   ///////  ///   //  //////    ///////  ///////
 //    //  //       ////  //  //   //   //       //    //
 ///////   /////    // // //  //    //  /////    ///////
 //  //    //       //  ////  //   //   //       //  //
 //   //   ///////  //   ///  //////    ///////  //   //
 
-const Printable = props => {
+const Download = props => {
 	return (
 		<div className={component}>
-			<div />
+			<DownloadIcon />
 		</div>
 	);
 };
@@ -23,6 +25,12 @@ const Printable = props => {
 ///     //////  ///////  /////       //       //     ///
 ////////////////////////////////////////////////////////
 
-const component = css({});
+const component = css({
+	position: 'absolute',
+	top: '0',
+	left: '0',
+	height: '100%',
+	width: '100%'
+});
 
-export default Printable;
+export default Download;

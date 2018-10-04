@@ -6,6 +6,7 @@ import shortid from 'shortid';
 import ResumeFooter from './ResumeFooter';
 
 import Atom from './images/Atom';
+import Electron from './images/Electron';
 import Emmet from './images/Emmet';
 import Git from './images/Git';
 import Gulp from './images/Gulp';
@@ -31,6 +32,7 @@ import Webpack from './images/Webpack';
 
 let logos = [
 	<Atom />,
+	<Electron />,
 	<Emmet />,
 	<Git />,
 	<Gulp />,

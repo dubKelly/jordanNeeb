@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { css } from 'emotion';
 
+import Download from '../Download';
 import Stack from '../Stack';
 import Timeline from '../Timeline';
 
@@ -31,6 +32,7 @@ const Resume = props => {
 	return (
 		<div className={component}>
 			<Route exact path="/resume" component={Stack} />
+			<Route exact path="/resume/download" component={Download} />
 			<Route exact path="/resume/atom" component={Atom} />
 			<Route exact path="/resume/emmet" component={Emmet} />
 			<Route exact path="/resume/git" component={Git} />
