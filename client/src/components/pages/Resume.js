@@ -65,7 +65,7 @@ const component = css({
 	width: '100%',
 	top: '0',
 	left: '0',
-	minHeight: '320px'
+	minHeight: '530px'
 });
 
 export default Resume;

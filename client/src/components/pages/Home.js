@@ -30,6 +30,7 @@ const Home = props => {
 const component = css({
 	height: '100vh',
 	width: '100%',
+	minHeight: '530px',
 	backgroundColor: _dark
 });
 

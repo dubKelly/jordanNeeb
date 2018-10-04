@@ -33,6 +33,7 @@ const component = css({
 	position: 'absolute',
 	height: '100vh',
 	width: '100%',
+	minHeight: '530px',
 	top: '0',
 	left: '0'
 });
