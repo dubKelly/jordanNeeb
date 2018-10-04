@@ -2,9 +2,23 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
+const validateEmailInput = require('../validation/email');
+
 const SENDGRID_API_KEY = require('../config/keys').SENDGRID_API_KEY;
 
 router.post('/', (req, res) => {
+	const { errors, isValid } = validateEmailInput(req.body);
+
+	// Check Validation
+	if (!isValid) {
+		return res.status(400).json(errors);
+	}
+
+	const name = req.body.name;
+	const email = req.body.email;
+	const subject = req.body.subject;
+	const text = req.body.text;
+
 	nodemailer.createTestAccount((err, account) => {
 		// create reusable transporter object using the default SMTP transport
 		let transporter = nodemailer.createTransport({
@@ -22,10 +36,10 @@ router.post('/', (req, res) => {
 
 		// setup email data with unicode symbols
 		let mailOptions = {
-			from: `${req.body.name} <${req.body.email}>`, // sender address
+			from: `${name} <${email}>`, // sender address
 			to: 'js.neeb1780@gmail.com', // list of receivers
-			subject: req.body.subject, // Subject line
-			text: req.body.text // plain text body
+			subject: subject, // Subject line
+			text: text // plain text body
 			// html: '<b>Hello world?</b>' // html body
 		};
 

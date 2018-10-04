@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { css } from 'emotion';
 
-import { _light, _shadow, _grey } from '../lib/vars';
+import { _light, _shadow, _grey, _error } from '../lib/vars';
 
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			errors: false
+		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +42,7 @@ class ContactForm extends Component {
 				console.log(res);
 			})
 			.catch(err => {
-				console.log(err);
+				this.setState({ errors: err.response.data });
 			});
 	}
 
@@ -51,19 +53,35 @@ class ContactForm extends Component {
 	//   //   ///////  //   ///  //////    ///////  //   //
 
 	render() {
+		const subject = css({
+			border: !this.state.errors.subject ? 'none' : `1px solid ${_error}`
+		});
+
+		const text = css({
+			border: !this.state.errors.text ? 'none' : `1px solid ${_error}`
+		});
+
+		const name = css({
+			border: !this.state.errors.name ? 'none' : `1px solid ${_error}`
+		});
+
+		const email = css({
+			border: !this.state.errors.email ? 'none' : `1px solid ${_error}`
+		});
+
 		return (
 			<form className={component} onSubmit={this.handleSubmit}>
 				<input
 					type="text"
 					placeholder="Subject"
-					className={`${input} ${block}`}
+					className={`${input} ${subject} ${block}`}
 					name="subject"
 					onChange={this.handleChange}
 				/>
 				<textarea
 					name="text"
 					placeholder="Message"
-					className={`${input} ${block}`}
+					className={`${input} ${text} ${block}`}
 					rows="8"
 					onChange={this.handleChange}
 				/>
@@ -71,14 +89,14 @@ class ContactForm extends Component {
 					type="text"
 					placeholder="Name"
 					name="name"
-					className={`${input} ${inline}`}
+					className={`${input} ${name} ${inline}`}
 					onChange={this.handleChange}
 				/>
 				<input
 					type="text"
 					placeholder="Email"
 					name="email"
-					className={`${input} ${inline} ${inlineRight}`}
+					className={`${input} ${email} ${inline} ${inlineRight}`}
 					onChange={this.handleChange}
 				/>
 				<input type="submit" value="Send" className={`${input} ${submit}`} />
@@ -106,7 +124,6 @@ const component = css({
 });
 
 const input = css({
-	border: 'none',
 	borderRadius: '3px',
 	boxSizing: 'border-box',
 	resize: 'none',
@@ -143,6 +160,7 @@ const inlineRight = css({
 });
 
 const submit = css({
+	border: 'none',
 	display: 'inline-block',
 	width: '33%',
 	float: 'right',
