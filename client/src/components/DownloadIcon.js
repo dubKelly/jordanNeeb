@@ -50,7 +50,7 @@ const DownloadIcon = props => {
 ////////////////////////////////////////////////////////
 
 const component = css({
-	position: 'absolute',
+	position: 'fixed',
 	bottom: '30px',
 	left: '30px',
 	height: '30px',
