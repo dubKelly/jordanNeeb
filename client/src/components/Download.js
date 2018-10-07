@@ -124,7 +124,6 @@ const Download = props => {
 							Provided website and blog content and contributed to the
 							development of the company&#8217;s brand and mission statement
 						</li>
-						<li>Email contact with Nodemailer and SendGrid</li>
 						<li>
 							Designed and developed site using Vanilla JavaScript and CSS
 						</li>
