@@ -41,14 +41,17 @@ class ContactForm extends Component {
 		this.setState({ pending: true });
 
 		axios
-			.post('https://afternoon-eyrie-83076.herokuapp.com/email', message)
+			.post('https://afternoon-eyrie-83076.herokuapp.com/api/email', message)
 			.then(res => {
 				if (res.status === 200) {
-					this.setState({ pending: false, success: true });
+					console.log(this.props.history);
+					this.props.history.push('/success');
 				}
 			})
 			.catch(err => {
-				this.setState({ pending: false, errors: err.response.data });
+				if (err.response) {
+					this.setState({ pending: false, errors: err.response.data });
+				}
 			});
 	}
 

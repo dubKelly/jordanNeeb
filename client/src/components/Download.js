@@ -293,7 +293,6 @@ const sectionHeader = css({
 
 const sectionListHeader = css({
 	fontSize: '10px',
-	letterSpacing: '1px',
 	margin: '0',
 	padding: '15px 0',
 	color: 'white',

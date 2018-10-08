@@ -15,7 +15,7 @@ const Contact = props => {
 		<div className={component}>
 			<div className={container}>
 				<Header text="Hit Me Up" />
-				<ContactForm />
+				<ContactForm history={props.history} />
 			</div>
 		</div>
 	);

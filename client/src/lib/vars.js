@@ -3,6 +3,7 @@ export const _light = '#3aafa9';
 export const _shadow = '#2b7a78';
 export const _grey = '#8c979a';
 export const _error = '#f15546'; // text input verification
+export const _success = '#68c774'; // text input verification
 
 export const _html = '#d45836';
 export const _css = '#316dab';

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/pages/Home';
-import Landing from './components/pages/Landing';
-import Resume from './components/pages/Resume';
-import Contact from './components/pages/Contact';
 
 class App extends Component {
 	render() {
@@ -12,9 +9,6 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<Route path="/" component={Home} />
-					<Route exact path="/" component={Landing} />
-					<Route path="/resume" component={Resume} />
-					<Route exact path="/contact" component={Contact} />
 				</div>
 			</Router>
 		);

@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 });
 
 // Routes
-app.use('/email', email);
+app.use('/api/email', email);
 
 // Serve static in production
 if (process.env.NODE_ENV === 'production') {
