@@ -44,7 +44,6 @@ class ContactForm extends Component {
 			.post('https://afternoon-eyrie-83076.herokuapp.com/api/email', message)
 			.then(res => {
 				if (res.status === 200) {
-					console.log(this.props.history);
 					this.props.history.push('/success');
 				}
 			})

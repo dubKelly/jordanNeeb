@@ -13,7 +13,7 @@ const Header = props => {
 	////////////////////////////////////////////////////////
 
 	const component = css({
-		fontSize: '18px',
+		fontSize: '24px',
 		textTransform: 'uppercase',
 		textAlign: 'center',
 		letterSpacing: '5px',
